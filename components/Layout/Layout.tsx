@@ -16,11 +16,14 @@ const Layout = (props: { children: React.ReactNode }) => {
         <nav className="h-full">
           <ul className="flex justify-between h-full items-center">
             <li className=" w-3/4 flex pl-5">
-              <a>address &gt; second &gt; third</a>
+              <a>
+                address &gt; second &gt;{" "}
+                <span className="text-slate-400">third</span>
+              </a>
             </li>
             <li className="border-x-2  flex items-center h-full ">
-              <a className="text-slate-400 px-4 ">sort by</a>
-              <select className=" uppercase">
+              <a className="text-slate-400 px-4 text-sm ">sort by</a>
+              <select className=" uppercase text-base">
                 <option>messi</option>
                 <option>messi</option>
                 <option>messi</option>
@@ -29,16 +32,16 @@ const Layout = (props: { children: React.ReactNode }) => {
               </select>
             </li>
             <li className="px-5">
-              <AiTwotoneAppstore />
+              <AiTwotoneAppstore className="hover:text-orange-600 cursor-pointer transition duration-200" />
             </li>
-            <li className="px-5 ">
+            <li className="px-5 hover:text-orange-600 cursor-pointer transition duration-200">
               <AiOutlineUnorderedList />
             </li>
           </ul>
         </nav>
       </header>
       <div className="flex ">
-        <div className="bg-white h-max w-2/12 mt-4  flex flex-col container px-12 ">
+        <div className="bg-white h-full pb-56 w-2/12 mt-4  flex flex-col container px-12 ">
           <div className="flex  justify-between items-center  ">
             <div className="mt-5 text-lg">category</div>
             <AiOutlinePlusCircle className="mt-5" />
@@ -65,7 +68,7 @@ const Layout = (props: { children: React.ReactNode }) => {
           </div>
           <ColorFilter />
         </div>
-        <main className="mt-4 ml-5">{props.children}</main>
+        <main className="mt-4 ml-5 w-full">{props.children}</main>
       </div>
     </div>
   );

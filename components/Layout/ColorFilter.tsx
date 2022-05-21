@@ -1,8 +1,12 @@
+import { AiOutlineCheck } from "react-icons/ai";
+
 const ColorFilter = () => {
   return (
     <div className="flex flex-col    ">
       <div className="mt-3 flex items-center">
-        <span className="w-5 h-5 bg-blue-500 rounded-full"></span>
+        <span className="w-5 h-5 bg-blue-500 rounded-full flex items-center justify-center">
+          <AiOutlineCheck className="text-white" />
+        </span>
         <div className="ml-2">blue</div>
       </div>
       <div className="mt-3 flex items-center">

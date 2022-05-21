@@ -4,7 +4,12 @@ const FilterOptions = () => {
   return (
     <Fragment>
       <div className="flex items-center mt-2">
-        <input type="checkbox" name="vehicle1" value="Bike" />
+        <input
+          type="checkbox"
+          name="vehicle1"
+          value="Bike"
+          className="accent-zinc-900"
+        />
         <label htmlFor="vehicle1" className="ml-2">
           I have a bike
         </label>
