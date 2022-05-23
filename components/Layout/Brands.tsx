@@ -1,37 +1,37 @@
 import { Fragment, useState } from "react";
 import { AiOutlinePlusCircle, AiOutlineMinusCircle } from "react-icons/ai";
-import PriceItems from "../UI/FilterItems/PriceItems";
+import BrandsItems from "../UI/FilterItems/BrandsItems";
 
-const PriceFilter = () => {
-  const [priceOpen, setPriceOpen] = useState(false);
+const BrandsFilter = () => {
+  const [brandsOpen, setBrandsOpen] = useState(false);
 
-  const openPriceHandler = () => {
-    setPriceOpen(true);
+  const openBrandsHandler = () => {
+    setBrandsOpen(true);
   };
   const closeBrandsHandler = () => {
-    setPriceOpen(false);
+    setBrandsOpen(false);
   };
 
   return (
     <Fragment>
       <div className="flex  justify-between items-center  ">
-        <div className="mt-5 text-lg">price</div>
-        {!priceOpen && (
+        <div className="mt-5 text-lg">brands</div>
+        {!brandsOpen && (
           <AiOutlinePlusCircle
             className="mt-5 cursor-pointer"
-            onClick={openPriceHandler}
+            onClick={openBrandsHandler}
           />
         )}
-        {priceOpen && (
+        {brandsOpen && (
           <AiOutlineMinusCircle
             className="mt-5 cursor-pointer"
             onClick={closeBrandsHandler}
           />
         )}
       </div>
-      {priceOpen && <PriceItems />}
+      {brandsOpen && <BrandsItems />}
     </Fragment>
   );
 };
 
-export default PriceFilter;
+export default BrandsFilter;

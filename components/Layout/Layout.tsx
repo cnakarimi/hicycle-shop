@@ -1,15 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   AiTwotoneAppstore,
   AiOutlineUnorderedList,
   AiOutlinePlusCircle,
+  AiOutlineMinusCircle,
 } from "react-icons/ai";
 import ColorFilter from "./ColorFilter";
-import FilterOptions from "./FilterOptions";
+import CategoryFilter from "./CategoryFilter";
 import PriceFilter from "./PriceFilter";
 import SizeFilter from "./SizeFilter";
+import BrandsFilter from "./Brands";
 
 const Layout = (props: { children: React.ReactNode }) => {
+  const [priceOpen, setPriceOpen] = useState(false);
+
+  const openPriceHandler = () => {
+    setPriceOpen(true);
+  };
+  const closePriceHandler = () => {
+    setPriceOpen(false);
+  };
+
   return (
     <div>
       <header className="text-2xl mt-2 bg-white w-full h-12">
@@ -17,7 +28,7 @@ const Layout = (props: { children: React.ReactNode }) => {
           <ul className="flex justify-between h-full items-center">
             <li className=" w-3/4 flex pl-5">
               <a>
-                address &gt; second &gt;{" "}
+                address &gt; second &gt;
                 <span className="text-slate-400">third</span>
               </a>
             </li>
@@ -42,30 +53,10 @@ const Layout = (props: { children: React.ReactNode }) => {
       </header>
       <div className="flex ">
         <div className="bg-white h-full pb-56 w-2/12 mt-4  flex flex-col container px-12 ">
-          <div className="flex  justify-between items-center  ">
-            <div className="mt-5 text-lg">category</div>
-            <AiOutlinePlusCircle className="mt-5" />
-          </div>
-          <FilterOptions />
-          <div className="flex  justify-between items-center  ">
-            <div className="mt-5 text-lg">brands</div>
-            <AiOutlinePlusCircle className="mt-5" />
-          </div>
-          <FilterOptions />
-          <div className="flex  justify-between items-center  ">
-            <div className="mt-5 text-lg">wheel size</div>
-            <AiOutlinePlusCircle className="mt-5" />
-          </div>
+          <CategoryFilter />
+          <BrandsFilter />
           <SizeFilter />
-          <div className="flex  justify-between items-center  ">
-            <div className="mt-5 text-lg">price</div>
-            <AiOutlinePlusCircle className="mt-5" />
-          </div>
           <PriceFilter />
-          <div className="flex  justify-between items-center  ">
-            <div className="mt-5 text-lg">color</div>
-            <AiOutlinePlusCircle className="mt-5" />
-          </div>
           <ColorFilter />
         </div>
         <main className="mt-4 ml-5 w-full">{props.children}</main>

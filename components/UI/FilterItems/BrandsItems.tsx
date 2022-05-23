@@ -1,6 +1,6 @@
 import { Fragment } from "react";
 
-const FilterOptions = () => {
+const BrandsItems = () => {
   return (
     <Fragment>
       <div className="flex items-center mt-2">
@@ -42,4 +42,4 @@ const FilterOptions = () => {
   );
 };
 
-export default FilterOptions;
+export default BrandsItems;

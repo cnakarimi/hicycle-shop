@@ -1,35 +1,37 @@
-import { AiOutlineCheck } from "react-icons/ai";
+import { Fragment, useState } from "react";
+import { AiOutlinePlusCircle, AiOutlineMinusCircle } from "react-icons/ai";
+import ColorItems from "../UI/FilterItems/ColorsItems";
 
 const ColorFilter = () => {
+  const [colorsOpen, setColorsOpen] = useState(false);
+
+  const openColorsHandler = () => {
+    setColorsOpen(true);
+  };
+  const closeColorsHandler = () => {
+    setColorsOpen(false);
+  };
+
   return (
-    <div className="flex flex-col    ">
-      <div className="mt-3 flex items-center">
-        <span className="w-5 h-5 bg-blue-500 rounded-full flex items-center justify-center">
-          <AiOutlineCheck className="text-white" />
-        </span>
-        <div className="ml-2">blue</div>
+    <Fragment>
+      <div className="flex  justify-between items-center  ">
+        <div className="mt-5 text-lg">colors</div>
+        {!colorsOpen && (
+          <AiOutlinePlusCircle
+            className="mt-5 cursor-pointer"
+            onClick={openColorsHandler}
+          />
+        )}
+        {colorsOpen && (
+          <AiOutlineMinusCircle
+            className="mt-5 cursor-pointer"
+            onClick={closeColorsHandler}
+          />
+        )}
       </div>
-      <div className="mt-3 flex items-center">
-        <span className="w-5 h-5 bg-red-500 rounded-full"></span>
-        <div className="ml-2">red</div>
-      </div>
-      <div className="mt-3 flex items-center">
-        <span className="w-5 h-5 bg-orange-400 rounded-full"></span>
-        <div className="ml-2">orange</div>
-      </div>
-      <div className="mt-3 flex items-center">
-        <span className="w-5 h-5 bg-slate-800 rounded-full"></span>
-        <div className="ml-2">dark blue</div>
-      </div>
-      <div className="mt-3 flex items-center">
-        <span className="w-5 h-5 bg-green-700 rounded-full"></span>
-        <div className="ml-2">green</div>
-      </div>
-      <div className="mt-3 flex items-center">
-        <span className="w-5 h-5 bg-stone-700 rounded-full"></span>
-        <div className="ml-2">gray</div>
-      </div>
-    </div>
+
+      {colorsOpen && <ColorItems />}
+    </Fragment>
   );
 };
 
