@@ -12,14 +12,11 @@ import SizeFilter from "./SizeFilter";
 import BrandsFilter from "./Brands";
 
 const Layout = (props: { children: React.ReactNode }) => {
-  const [priceOpen, setPriceOpen] = useState(false);
+  const [GridIsOn, setBasicGridIsOn] = useState(true);
 
-  const openPriceHandler = () => {
-    setPriceOpen(true);
-  };
-  const closePriceHandler = () => {
-    setPriceOpen(false);
-  };
+  const basicGridHandler = () => {};
+
+  const oneLineGridHandler = () => {};
 
   return (
     <div>
@@ -43,10 +40,13 @@ const Layout = (props: { children: React.ReactNode }) => {
               </select>
             </li>
             <li className="px-5">
-              <AiTwotoneAppstore className="hover:text-orange-600 cursor-pointer transition duration-200" />
+              <AiTwotoneAppstore
+                className="hover:text-orange-600 cursor-pointer transition duration-200"
+                onClick={basicGridHandler}
+              />
             </li>
             <li className="px-5 hover:text-orange-600 cursor-pointer transition duration-200">
-              <AiOutlineUnorderedList />
+              <AiOutlineUnorderedList onClick={oneLineGridHandler} />
             </li>
           </ul>
         </nav>

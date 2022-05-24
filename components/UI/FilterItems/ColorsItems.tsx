@@ -2,8 +2,6 @@ import { useState } from "react";
 import { AiOutlineCheck } from "react-icons/ai";
 
 const ColorItems = () => {
-  const [choosedColor, setChoosedColor] = useState(false);
-
   return (
     <div className="flex flex-col">
       <div className="mt-3 flex items-center">
